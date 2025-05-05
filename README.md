@@ -1,4 +1,5 @@
 # Deno with OpenTelemetry
+* https://docs.deno.com/runtime/fundamentals/open_telemetry/
 
 ## 1. Create LGTM stack
 ```

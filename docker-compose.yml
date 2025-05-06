@@ -23,3 +23,27 @@ services:
       - ./lgtm/grafana:/data/grafana
       - ./lgtm/prometheus:/data/prometheus
       - ./lgtm/loki:/data/loki
+
+  go-auto:
+    image: otel/autoinstrumentation-go
+    privileged: true
+    pid: "host"
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://lgtm:4318
+      - OTEL_GO_AUTO_TARGET_EXE=/app/main
+      - OTEL_SERVICE_NAME=go-auto-api
+      - OTEL_PROPAGATORS=tracecontext,baggage
+      - OTEL_GO_AUTO_INCLUDE_DB_STATEMENT=true
+      - OTEL_GO_AUTO_PARSE_DB_STATEMENT=true
+    volumes:
+      - /proc:/host/proc
+  
+  go-api:
+    build:
+      context: ./api-go
+      dockerfile: Dockerfile
+    pid: "host"
+    ports:
+      - 1323:1323
+    volumes:
+      - /proc:/host/proc

@@ -2,7 +2,10 @@ module demo
 
 go 1.24.2
 
-require github.com/labstack/echo/v4 v4.13.3
+require (
+	github.com/labstack/echo/v4 v4.13.3
+	github.com/mattn/go-sqlite3 v1.14.28
+)
 
 require (
 	github.com/labstack/gommon v0.4.2 // indirect

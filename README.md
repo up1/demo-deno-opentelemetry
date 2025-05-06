@@ -24,3 +24,16 @@ Access to Grafana
 * http://localhost:3000/
   * Explore
 
+
+## 3. Working with Go-Auto instrumentation
+```
+$docker compose up -d lgtm
+$docker compose ps
+
+$docker compose up -d go-api --build
+$docker compose ps
+
+$docker compose up -d go-auto
+$docker compose ps
+```
+

@@ -35,6 +35,7 @@ services:
       - OTEL_PROPAGATORS=tracecontext,baggage
       - OTEL_GO_AUTO_INCLUDE_DB_STATEMENT=true
       - OTEL_GO_AUTO_PARSE_DB_STATEMENT=true
+      - CGO_ENABLED=1
     volumes:
       - /proc:/host/proc
   
